@@ -16,10 +16,7 @@ void selection_sort(int *array, size_t size)
 	int tmp_int;
 
 	if (size < 2 || array == NULL)
-	{
-		print_array(array, size);
 		return;
-	}
 
 	for (i = 0; i <= size - 1; i++)
 	{

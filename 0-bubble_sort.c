@@ -12,14 +12,9 @@ void bubble_sort(int *array, size_t size)
 	int temp = 0, counter = 0;
 	unsigned int i = 0, j = 0;
 
-	if (array == NULL || size == 0)
+	if (array == NULL || size == 0 || size < 2)
 		return;
-	else if (size < 2)
-	{
-		print_array(array, size);
-		return;
-	}
-	for (i = 0; i < size; ++i)
+	 (i = 0; i < size; ++i)
 	{
 		for (j = 0; j < size - 1; ++j)
 		{

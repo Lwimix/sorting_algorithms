@@ -12,25 +12,17 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	size_t i, list_length;
-	int j;
 	listint_t *to_insert, *to_compare;
 
-	if (*list == NULL)
+	if (list == NULL)
 		return;
 
-	list_length = dlistint_len(*list);
-
-	if (list_length < 2)
-		return;
-
-	for (i = 1; i < list_length; i++)
+	to_insert = (*list)->next;
+	while (to_insert != NULL)
 	{
-		to_insert = get_dnodeint_at_index(*list, i);
-
-		for (j = i - 1; j >= 0; j--)
+		to_compare = to_insert->prev;
+		while (to_compare != NULL)
 		{
-			to_compare = get_dnodeint_at_index(*list, j);
 			if (to_insert->n < to_compare->n)
 			{
 				to_insert->prev = to_compare->prev;
@@ -41,13 +33,16 @@ void insertion_sort_list(listint_t **list)
 					to_insert->next->prev = to_compare;
 				to_insert->next = to_compare;
 				to_compare->prev = to_insert;
-				if (j == 0)
+				if (to_insert->prev == NULL)
 					*list = to_insert;
 
 				print_list(*list);
 			}
 			else if (to_insert->n >= to_compare->n)
 				break;
+
+			to_compare = to_insert->prev;
 		}
+		to_insert = to_insert->next;
 	}
 }

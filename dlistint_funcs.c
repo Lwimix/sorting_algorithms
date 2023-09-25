@@ -49,23 +49,3 @@ listint_t *get_dnodeint_at_index(listint_t *head, unsigned int index)
 
 	return (curr);
 }
-
-
-/**
- * free_dlistint  - Frees a `listint_t` list.
- *
- * @head: Pointer to a `listint_t` list type, which represents the
- *
- * Return: Nothing.
- */
-void free_dlistint(listint_t *head)
-{
-	listint_t *curr;
-
-	while (head != NULL)
-	{
-		curr = head;
-		head = head->next;
-		free(curr);
-	}
-}

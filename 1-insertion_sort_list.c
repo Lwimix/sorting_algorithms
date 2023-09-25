@@ -4,7 +4,7 @@
  * insertion_sort_list - Sorts a doubly linked list of integers in ascending
  * order using Insertion Sort algortihm.
  *
- * @listint_t: Pointer to an array of pointers to listint_t defined datatype
+ * @list: Pointer to an array of pointers to listint_t defined datatype
  * which represents the integer values through a doubly linked list data
  * structure.
  *

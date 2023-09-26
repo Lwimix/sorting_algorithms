@@ -30,5 +30,7 @@ listint_t *get_dnodeint_at_index(listint_t *head, unsigned int index);
 void insertion_sort_list(listint_t **list);
 listint_t *create_listint(const int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
+void outer_links(listint_t *node, listint_t **list);
 
 #endif

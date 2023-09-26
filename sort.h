@@ -29,5 +29,6 @@ size_t dlistint_len(const listint_t *h);
 listint_t *get_dnodeint_at_index(listint_t *head, unsigned int index);
 void insertion_sort_list(listint_t **list);
 listint_t *create_listint(const int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 
 #endif

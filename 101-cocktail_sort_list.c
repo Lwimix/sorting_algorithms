@@ -1,17 +1,17 @@
-#include "header.h"
+#include "sort.h"
 
 /**
  * cocktail_sort_list - implements cocktail sort algorithm
- * @head: sorted/unsorted list
+ * @list: sorted/unsorted list
  *
  * Return: nothing
  */
-void cocktail_sort_list(listint_t **head)
+void cocktail_sort_list(listint_t **list)
 {
 	int swapped;
-	listint_t *start = *head, *end = NULL, *current = NULL;
+	listint_t *start = *list, *end = NULL, *current = NULL;
 
-	if (head == NULL)
+	if (list == NULL)
 		return;
 	do {
 		swapped = 0;
@@ -20,8 +20,8 @@ void cocktail_sort_list(listint_t **head)
 		{
 			if (current->n > current->next->n)
 			{
-				swap_nodes(head, current, current->next);
-				print_list(*head);
+				swap_nodes(list, current, current->next);
+				print_list(*list);
 				swapped = 1;
 			}
 			else
@@ -37,8 +37,8 @@ void cocktail_sort_list(listint_t **head)
 		{
 			if (current->n < current->prev->n)
 			{
-				swap_nodes(head, current->prev, current);
-				print_list(*head);
+				swap_nodes(list, current->prev, current);
+				print_list(*list);
 				swapped = 1;
 			}
 			else
@@ -52,17 +52,17 @@ void cocktail_sort_list(listint_t **head)
 
 /**
  * swap_nodes - swaps two neighbouring nodes
- * @head: pointer to list
+ * @list: pointer to list
  * @node1: first node
  * @node2: second node
  *
  * Return: nothing
  */
-void swap_nodes(listint_t **head, listint_t *node1, listint_t *node2)
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 {
 	listint_t *mylinks[4] = {0};
 
-	if (head == NULL || node1 == NULL || node2 == NULL)
+	if (list == NULL || node1 == NULL || node2 == NULL)
 		return;
 	if (node1 == node2)
 		return;
@@ -84,23 +84,23 @@ void swap_nodes(listint_t **head, listint_t *node1, listint_t *node2)
 		node1->prev = mylinks[2];
 		node1->next = mylinks[0];
 	}
-	outer_links(node1, head);
-	outer_links(node2, head);
+	outer_links(node1, list);
+	outer_links(node2, list);
 }
 
 /**
  * outer_links - sets the outer links of nodes
  * @node: node
- * @head: pointer to list
+ * @list: pointer to list
  *
  * Return: nothing
  */
-void outer_links(listint_t *node, listint_t **head)
+void outer_links(listint_t *node, listint_t **list)
 {
 	if (node->prev != NULL)
 		node->prev->next = node;
 	else
-		*head = node;
+		*list = node;
 	if (node->next != NULL)
 		node->next->prev = node;
 }
